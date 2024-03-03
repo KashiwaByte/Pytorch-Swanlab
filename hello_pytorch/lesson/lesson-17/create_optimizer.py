@@ -13,6 +13,7 @@ from torch.utils.data import DataLoader
 import torchvision.transforms as transforms
 import torch.optim as optim
 from matplotlib import pyplot as plt
+import swanlab
 
 import sys
 hello_pytorch_DIR = os.path.abspath(os.path.dirname(__file__)+os.path.sep+".."+os.path.sep+"..")
@@ -31,6 +32,7 @@ BATCH_SIZE = 16
 LR = 0.01
 log_interval = 10
 val_interval = 1
+swanlab.init(experiment_name="rmb_classifer",config={"Max_Epoch":10,"Batch_Size":1,"Learning_Rate":0.01,"log_interval":10,"val_interval":1,"rmb_label":{"1": 0, "100": 1},"norm_mean":[0.485, 0.456, 0.406],"norm_std":[0.229, 0.224, 0.225]})
 
 # ============================ step 1/5 数据 ============================
 
@@ -141,6 +143,7 @@ for epoch in range(MAX_EPOCH):
             print("Valid:\t Epoch[{:0>3}/{:0>3}] Iteration[{:0>3}/{:0>3}] Loss: {:.4f} Acc:{:.2%}".format(
                 epoch, MAX_EPOCH, j+1, len(valid_loader), loss_val, correct / total))
 
+    swanlab.log({"Loss":loss_val,"Accuracy":correct / total})
 
 train_x = range(len(train_curve))
 train_y = train_curve
@@ -155,6 +158,7 @@ plt.plot(valid_x, valid_y, label='Valid')
 plt.legend(loc='upper right')
 plt.ylabel('loss value')
 plt.xlabel('Iteration')
+swanlab.log({"result":swanlab.Image(plt)})
 plt.show()
 
 # ============================ inference ============================
