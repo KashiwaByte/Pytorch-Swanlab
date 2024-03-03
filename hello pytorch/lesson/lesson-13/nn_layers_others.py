@@ -15,6 +15,7 @@ import torch.nn as nn
 from torchvision import transforms
 from matplotlib import pyplot as plt
 from PIL import Image
+import swanlab
 path_tools = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "tools", "common_tools.py"))
 assert os.path.exists(path_tools), "{}不存在，请将common_tools.py文件放到 {}".format(path_tools, os.path.dirname(path_tools))
 
@@ -43,22 +44,28 @@ flag = 0
 if flag:
     maxpool_layer = nn.MaxPool2d((2, 2), stride=(2, 2))   # input:(i, o, size) weights:(o, i , h, w)
     img_pool = maxpool_layer(img_tensor)
+    experiment_name ="maxpool"
+    swanlab.init(experiment_name=experiment_name)
 
 # ================ avgpool
-# flag = 1
+#flag = 1
 flag = 0
 if flag:
     avgpoollayer = nn.AvgPool2d((2, 2), stride=(2, 2))   # input:(i, o, size) weights:(o, i , h, w)
     img_pool = avgpoollayer(img_tensor)
+    experiment_name ="avgpool"
+    swanlab.init(experiment_name=experiment_name)
+    
 
 # ================ avgpool divisor_override
-# flag = 1
-flag = 0
+flag = 1
+# flag = 0
 if flag:
     img_tensor = torch.ones((1, 1, 4, 4))
     avgpool_layer = nn.AvgPool2d((2, 2), stride=(2, 2), divisor_override=3)
     img_pool = avgpool_layer(img_tensor)
-
+    experiment_name ="avgpool_divisor_override"
+    swanlab.init(experiment_name=experiment_name)
     print("raw_img:\n{}\npooling_img:\n{}".format(img_tensor, img_pool))
 
 
@@ -76,13 +83,17 @@ if flag:
     maxunpool_layer = nn.MaxUnpool2d((2, 2), stride=(2, 2))
     img_unpool = maxunpool_layer(img_reconstruct, indices)
 
+    experiment_name = "max_unpool"
+    swanlab.init(experiment_name=experiment_name)
     print("raw_img:\n{}\nimg_pool:\n{}".format(img_tensor, img_pool))
     print("img_reconstruct:\n{}\nimg_unpool:\n{}".format(img_reconstruct, img_unpool))
 
 
 # ================ linear
-flag = 1
-# flag = 0
+
+
+# flag = 1
+flag = 0
 if flag:
     inputs = torch.tensor([[1., 2, 3]])
     linear_layer = nn.Linear(3, 4)
@@ -93,17 +104,27 @@ if flag:
 
     linear_layer.bias.data.fill_(0.5)
     output = linear_layer(inputs)
+    
+    experiment_name = "linear"
+    swanlab.init(experiment_name=experiment_name)
     print(inputs, inputs.shape)
     print(linear_layer.weight.data, linear_layer.weight.data.shape)
     print(output, output.shape)
 
 
 # ================================= visualization ==================================
+# swanlab.log({"inputs":inputs,
+#              "input_shape":inputs.shape,
+#              "linear_layer_weight_data":linear_layer.weight.data,
+#              "linear_layer_weight_data_shape":linear_layer.weight.data.shape,
+#              "output":output,
+#              "output_shape":output.shape})
 # print("池化前尺寸:{}\n池化后尺寸:{}".format(img_tensor.shape, img_pool.shape))
 # img_pool = transform_invert(img_pool[0, 0:3, ...], img_transform)
 # img_raw = transform_invert(img_tensor.squeeze(), img_transform)
 # plt.subplot(122).imshow(img_pool)
 # plt.subplot(121).imshow(img_raw)
+# swanlab.log({experiment_name:swanlab.Image(plt)})
 # plt.show()
 
 

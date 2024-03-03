@@ -1,0 +1,8 @@
+1 [SwanLab-INFO]:        Experiment avgpool_Mar03_17-18-10 has been registered.
+2 [SwanLab-INFO]:        Run data will be saved locally in c:\Users\94427\kashiwa\Pytorch-Camp\swanlog\run-20240303_171810-c386bbc4
+3 [SwanLab-INFO]:        Experiment_name: avgpool_Mar03_17-18-10
+4 [SwanLab-INFO]:        Run `swanlab watch` to view SwanLab Experiment Dashboard
+5 池化前尺寸:torch.Size([1, 3, 512, 512])
+6 池化后尺寸:torch.Size([1, 3, 256, 256])
+
+7 [SwanLab-INFO]:        The current experiment avgpool_Mar03_17-18-10 has been completed, SwanLab will close it automatically

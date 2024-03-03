@@ -1,0 +1,14 @@
+1 [SwanLab-INFO]:        Experiment avgpool_divisor_override_Mar03_17-35-35 has been registered.
+2 [SwanLab-INFO]:        Run data will be saved locally in c:\Users\94427\kashiwa\Pytorch-Camp\swanlog\run-20240303_173535-c386bbc4
+3 [SwanLab-INFO]:        Experiment_name: avgpool_divisor_override_Mar03_17-35-35
+4 [SwanLab-INFO]:        Run `swanlab watch` to view SwanLab Experiment Dashboard
+5 raw_img:
+6 tensor([[[[1., 1., 1., 1.],
+7           [1., 1., 1., 1.],
+8           [1., 1., 1., 1.],
+9           [1., 1., 1., 1.]]]])
+10 pooling_img:
+11 tensor([[[[1.3333, 1.3333],
+12           [1.3333, 1.3333]]]])
+
+13 [SwanLab-INFO]:        The current experiment avgpool_divisor_override_Mar03_17-35-35 has been completed, SwanLab will close it automatically
