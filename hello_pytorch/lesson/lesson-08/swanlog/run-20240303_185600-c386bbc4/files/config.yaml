@@ -1,0 +1,40 @@
+Batch_Size:
+  desc: null
+  sort: 1
+  value: 1
+Learning_Rate:
+  desc: null
+  sort: 2
+  value: 0.01
+Max_Epoch:
+  desc: null
+  sort: 0
+  value: 10
+log_interval:
+  desc: null
+  sort: 3
+  value: 10
+norm_mean:
+  desc: null
+  sort: 6
+  value:
+  - 0.485
+  - 0.456
+  - 0.406
+norm_std:
+  desc: null
+  sort: 7
+  value:
+  - 0.229
+  - 0.224
+  - 0.225
+rmb_label:
+  desc: null
+  sort: 5
+  value:
+    '1': 0
+    '100': 1
+val_interval:
+  desc: null
+  sort: 4
+  value: 1

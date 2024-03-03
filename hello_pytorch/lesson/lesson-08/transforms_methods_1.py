@@ -14,6 +14,7 @@ from torch.utils.data import DataLoader
 import torchvision.transforms as transforms
 from PIL import Image
 from matplotlib import pyplot as plt
+import swanlab
 path_lenet = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "model", "lenet.py"))
 path_tools = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "tools", "common_tools.py"))
 assert os.path.exists(path_lenet), "{}不存在，请将lenet.py文件放到 {}".format(path_lenet, os.path.dirname(path_lenet))
@@ -36,6 +37,7 @@ log_interval = 10
 val_interval = 1
 rmb_label = {"1": 0, "100": 1}
 
+
 # ============================ step 1/5 数据 ============================
 split_dir = os.path.abspath(os.path.join("..", "..", "data", "rmb_split"))
 if not os.path.exists(split_dir):
@@ -46,6 +48,7 @@ valid_dir = os.path.join(split_dir, "valid")
 norm_mean = [0.485, 0.456, 0.406]
 norm_std = [0.229, 0.224, 0.225]
 
+swanlab.init(experiment_name="Data_Loader_Compose",config={"Max_Epoch":10,"Batch_Size":1,"Learning_Rate":0.01,"log_interval":10,"val_interval":1,"rmb_label":{"1": 0, "100": 1},"norm_mean":[0.485, 0.456, 0.406],"norm_std":[0.229, 0.224, 0.225]})
 
 train_transform = transforms.Compose([
     transforms.Resize((224, 224)),
@@ -79,11 +82,11 @@ train_transform = transforms.Compose([
     # 2 Vertical Flip
     # transforms.RandomVerticalFlip(p=0.5),
 
-    # 3 RandomRotation
-    # transforms.RandomRotation(90),
-    # transforms.RandomRotation((90), expand=True),
-    # transforms.RandomRotation(30, center=(0, 0)),
-    # transforms.RandomRotation(30, center=(0, 0), expand=True),   # expand only for center rotation
+   # 3 RandomRotation
+    transforms.RandomRotation(90),
+    transforms.RandomRotation((90), expand=True),
+    transforms.RandomRotation(30, center=(0, 0)),
+    transforms.RandomRotation(30, center=(0, 0), expand=True),   # expand only for center rotation
 
     transforms.ToTensor(),
     transforms.Normalize(norm_mean, norm_std),
@@ -112,18 +115,23 @@ for epoch in range(MAX_EPOCH):
 
         img_tensor = inputs[0, ...]     # C H W
         img = transform_invert(img_tensor, train_transform)
-        plt.imshow(img)
-        plt.show()
-        plt.pause(0.5)
-        plt.close()
+        if i <=20:
+                swanlab.log({"image":swanlab.Image(img)})
+       # plt.imshow(img)
+       # plt.show()
+       # plt.pause(0.5)
+       # plt.close()
 
-        # bs, ncrops, c, h, w = inputs.shape
+     
+        #bs,ncrops, c, h, w = inputs.shape
+
         # for n in range(ncrops):
         #     img_tensor = inputs[0, n, ...]  # C H W
         #     img = transform_invert(img_tensor, train_transform)
-        #     plt.imshow(img)
-        #     plt.show()
-        #     plt.pause(1)
+           
+            # plt.imshow(img)
+            # plt.show()
+            # plt.pause(1)
 
 
 
