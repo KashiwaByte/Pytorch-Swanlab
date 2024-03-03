@@ -113,12 +113,7 @@ if flag:
 
 
 # ================================= visualization ==================================
-# swanlab.log({"inputs":inputs,
-#              "input_shape":inputs.shape,
-#              "linear_layer_weight_data":linear_layer.weight.data,
-#              "linear_layer_weight_data_shape":linear_layer.weight.data.shape,
-#              "output":output,
-#              "output_shape":output.shape})
+
 # print("池化前尺寸:{}\n池化后尺寸:{}".format(img_tensor.shape, img_pool.shape))
 # img_pool = transform_invert(img_pool[0, 0:3, ...], img_transform)
 # img_raw = transform_invert(img_tensor.squeeze(), img_transform)
