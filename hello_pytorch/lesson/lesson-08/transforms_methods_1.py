@@ -48,7 +48,7 @@ valid_dir = os.path.join(split_dir, "valid")
 norm_mean = [0.485, 0.456, 0.406]
 norm_std = [0.229, 0.224, 0.225]
 
-swanlab.init(experiment_name="Data_Loader_Compose",config={"Max_Epoch":10,"Batch_Size":1,"Learning_Rate":0.01,"log_interval":10,"val_interval":1,"rmb_label":{"1": 0, "100": 1},"norm_mean":[0.485, 0.456, 0.406],"norm_std":[0.229, 0.224, 0.225]})
+swanlab.init(experiment_name="Data_Loader",config={"Max_Epoch":10,"Batch_Size":1,"Learning_Rate":0.01,"log_interval":10,"val_interval":1,"rmb_label":{"1": 0, "100": 1},"norm_mean":[0.485, 0.456, 0.406],"norm_std":[0.229, 0.224, 0.225]})
 
 train_transform = transforms.Compose([
     transforms.Resize((224, 224)),
@@ -83,10 +83,10 @@ train_transform = transforms.Compose([
     # transforms.RandomVerticalFlip(p=0.5),
 
    # 3 RandomRotation
-    transforms.RandomRotation(90),
-    transforms.RandomRotation((90), expand=True),
-    transforms.RandomRotation(30, center=(0, 0)),
-    transforms.RandomRotation(30, center=(0, 0), expand=True),   # expand only for center rotation
+    # transforms.RandomRotation(90),
+    # transforms.RandomRotation((90), expand=True),
+    # transforms.RandomRotation(30, center=(0, 0)),
+    # transforms.RandomRotation(30, center=(0, 0), expand=True),   # expand only for center rotation
 
     transforms.ToTensor(),
     transforms.Normalize(norm_mean, norm_std),
@@ -115,7 +115,7 @@ for epoch in range(MAX_EPOCH):
 
         img_tensor = inputs[0, ...]     # C H W
         img = transform_invert(img_tensor, train_transform)
-        if i <=2:
+        if i <=1:
                 swanlab.log({"image":swanlab.Image(img)})
        # plt.imshow(img)
        # plt.show()

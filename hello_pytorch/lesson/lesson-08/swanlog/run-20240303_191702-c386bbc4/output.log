@@ -1,0 +1,5 @@
+SwanLab INFO [2024-03-03 19:17:03,019] Experiment Data_Loader_Mar03_19-17-02 has been registered.
+SwanLab INFO [2024-03-03 19:17:03,020] Run data will be saved locally in C:\Users\94427\kashiwa\Pytorch-Camp\hello_pytorch\lesson\lesson-08\swanlog\run-20240303_191702-c386bbc4
+SwanLab INFO [2024-03-03 19:17:03,021] Experiment_name: Data_Loader_Mar03_19-17-02
+SwanLab INFO [2024-03-03 19:17:03,021] Run `swanlab watch` to view SwanLab Experiment Dashboard
+SwanLab INFO [2024-03-03 19:17:23,990] The current experiment Data_Loader_Mar03_19-17-02 has been completed, SwanLab will close it automatically
