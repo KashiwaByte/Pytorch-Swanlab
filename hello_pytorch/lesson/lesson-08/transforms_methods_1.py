@@ -115,7 +115,7 @@ for epoch in range(MAX_EPOCH):
 
         img_tensor = inputs[0, ...]     # C H W
         img = transform_invert(img_tensor, train_transform)
-        if i <=20:
+        if i <=2:
                 swanlab.log({"image":swanlab.Image(img)})
        # plt.imshow(img)
        # plt.show()
