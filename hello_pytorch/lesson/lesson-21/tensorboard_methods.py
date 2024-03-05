@@ -34,8 +34,8 @@ if flag:
 
 
 # ----------------------------------- 1 scalar and scalars -----------------------------------
-flag = 0
-# flag = 1
+# flag = 0
+flag = 1
 if flag:
 
     max_epoch = 100

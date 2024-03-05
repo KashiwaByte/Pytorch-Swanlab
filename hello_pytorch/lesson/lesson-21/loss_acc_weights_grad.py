@@ -14,6 +14,7 @@ import torchvision.transforms as transforms
 from torch.utils.tensorboard import SummaryWriter
 import torch.optim as optim
 from matplotlib import pyplot as plt
+import swanlab
 
 import sys
 hello_pytorch_DIR = os.path.abspath(os.path.dirname(__file__)+os.path.sep+".."+os.path.sep+"..")
@@ -44,6 +45,8 @@ valid_dir = os.path.join(split_dir, "valid")
 
 norm_mean = [0.485, 0.456, 0.406]
 norm_std = [0.229, 0.224, 0.225]
+
+swanlab.init(experiment_name="swan-tensor",config={"Max_Epoch":10,"Batch_Size":1,"Learning_Rate":0.01,"log_interval":10,"val_interval":1,"rmb_label":{"1": 0, "100": 1},"norm_mean":[0.485, 0.456, 0.406],"norm_std":[0.229, 0.224, 0.225]})
 
 train_transform = transforms.Compose([
     transforms.Resize((32, 32)),
@@ -129,10 +132,14 @@ for epoch in range(MAX_EPOCH):
         writer.add_scalars("Loss", {"Train": loss.item()}, iter_count)
         writer.add_scalars("Accuracy", {"Train": correct / total}, iter_count)
 
+        swanlab.log({'Loss':loss.item(),"Accuracy":correct / total})
     # 每个epoch，记录梯度，权值
     for name, param in net.named_parameters():
         writer.add_histogram(name + '_grad', param.grad, epoch)
         writer.add_histogram(name + '_data', param, epoch)
+
+        print(f'name_data:{param}')
+        print(f'name_grad:{param.grad}')
 
     scheduler.step()  # 更新学习率
 
