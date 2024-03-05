@@ -1,0 +1,5 @@
+SwanLab INFO [2024-03-05 19:56:50,217] Experiment swan-tensor_Mar05_19-56-48 has been registered.
+SwanLab INFO [2024-03-05 19:56:50,218] Run data will be saved locally in D:\Pytorch-Swanlab\hello_pytorch\lesson\lesson-21\swanlog\run-20240305_195648-c386bbc4
+SwanLab INFO [2024-03-05 19:56:50,218] Experiment_name: swan-tensor_Mar05_19-56-48
+SwanLab INFO [2024-03-05 19:56:50,218] Run `swanlab watch` to view SwanLab Experiment Dashboard
+SwanLab INFO [2024-03-05 19:57:53,260] The current experiment swan-tensor_Mar05_19-56-48 has been completed, SwanLab will close it automatically

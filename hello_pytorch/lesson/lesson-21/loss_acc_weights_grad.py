@@ -184,6 +184,7 @@ plt.plot(valid_x, valid_y, label='Valid')
 plt.legend(loc='upper right')
 plt.ylabel('loss value')
 plt.xlabel('Iteration')
+swanlab.log({'result':swanlab.Image(plt,caption="Train_Valid")})
 plt.show()
 
 
