@@ -1,0 +1,5 @@
+SwanLab INFO [2024-03-05 21:53:30,739] Experiment hook_for_grad_cam_Mar05_21-53-29 has been registered.
+SwanLab INFO [2024-03-05 21:53:30,740] Run data will be saved locally in D:\Pytorch-Swanlab\hello_pytorch\lesson\lesson-23\swanlog\run-20240305_215329-794082a2
+SwanLab INFO [2024-03-05 21:53:30,742] Experiment_name: hook_for_grad_cam_Mar05_21-53-29
+SwanLab INFO [2024-03-05 21:53:30,742] Run `swanlab watch` to view SwanLab Experiment Dashboard
+SwanLab INFO [2024-03-05 21:53:30,844] The current experiment hook_for_grad_cam_Mar05_21-53-29 has been completed, SwanLab will close it automatically
