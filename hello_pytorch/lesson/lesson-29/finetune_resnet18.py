@@ -39,7 +39,7 @@ classes = 2
 start_epoch = -1
 lr_decay_step = 7
 
-swanlab.init(experiment_name="resnet-18",config={"MAX_EPOCH":25,"BATCH_SIZE":16,"learning_rate":0.001})
+swanlab.init(experiment_name="finetune_resnet-18_freeze",config={"MAX_EPOCH":25,"BATCH_SIZE":16,"learning_rate":0.001})
 # ============================ step 1/5 数据 ============================
 data_dir = os.path.abspath(os.path.join(BASEDIR, "..", "..", "data", "hymenoptera_data"))
 if not os.path.exists(data_dir):
@@ -80,8 +80,8 @@ valid_loader = DataLoader(dataset=valid_data, batch_size=BATCH_SIZE)
 resnet18_ft = models.resnet18()
 
 # 2/3 加载参数
-flag = 0
-# flag = 1
+# flag = 0
+flag = 1
 if flag:
     path_pretrained_model = os.path.join(BASEDIR, "..", "..", "data", "finetune_resnet18-5c106cde.pth")
     if not os.path.exists(path_pretrained_model):
