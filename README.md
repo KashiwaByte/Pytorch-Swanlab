@@ -1,24 +1,15 @@
-# PyTorch框架班 
+以下是基于[Pytorch框架班](https://wx32e0ad0076a9091c.h5.xiaoe-tech.com/v1/course/video/v_5e9e5f6ddcef2_TCLvUDOF?type=2&pro_id=p_5df0ad9a09d37_qYqVmt85) 课程的Swanlab实践指南。
 
-## 课程介绍
+## Swanlab实践
+lesson-08:[transforms_methods](hello_pytorch\lesson\lesson-08\transforms_methods_1.py) 介绍了Swanlab对预处理图像的记录  
+lesson-17:[create_optimizer](hello_pytorch\lesson\lesson-17\create_optimizer.py) 介绍了Swanlab对基础二分类模型的全流程记录   
+lesson-23:[hook_for_grad_cam](hello_pytorch\lesson\lesson-23\hook_for_grad_cam.py) 介绍了Swanlab对hook函数处理获得图像的记录  
+lesson-24:[L2_regularization](hello_pytorch\lesson\lesson-24\L2_regularization.py) 介绍了Swanlab对L2正则化处理模型训练的记录，包含了与Tensorboard的对比  
+lesson-25:[dropout_regularization](hello_pytorch\lesson\lesson-25\dropout_regularization.py) 介绍了Swanlab对dropout正则化处理模型训练的记录，包含了与Tensorboard的对比  
+lesson-29:[finetune_resnet18](hello_pytorch\lesson\lesson-29\finetune_resnet18.py) 介绍了Swanlab的多实验对比，包括不添加finetune，只添加finetune，添加finetune并冻结卷积层，添加finetune并调小卷积层学习度等四类情况  
 
-1.[超口碑|手把手教你洞悉PyTorch模型训练过程，彻底掌握pytorch基础原理！](https://mp.weixin.qq.com/s/_kGw4bKcZ7YFJLr8p4KJdQ) 
 
-2.[深入浅出Pytorch](https://wx32e0ad0076a9091c.h5.xiaoe-tech.com/v1/course/video/v_5e9e5f6ddcef2_TCLvUDOF?type=2&pro_id=p_5df0ad9a09d37_qYqVmt85) 
- 
-## 课程学习入口
 
-2.[【随到随学】Pytorch框架班](https://wx32e0ad0076a9091c.h5.xiaoe-tech.com/v1/course/column/p_5df0ad9a09d37_qYqVmt85?type=3)  
-3.[【跟班学】Pytorch框架班第五期](https://wx32e0ad0076a9091c.h5.xiaoe-tech.com/v1/course/column/p_5ed4c8cc96868_wNTujOEK?type=3)  
-
-## 学员福利
-
-### 1.人工智能学习路线
-[如果你不知道从哪开始学习，点我查看人工智能学习路径](https://wx32e0ad0076a9091c.h5.xiaoe-tech.com/v1/course/video/v_5ea7eb09aa736_fTlRHBHr?type=2&pro_id=p_5cde6693c3aa5_F75Q2KjK) 
-### 2.GPU
-凡深度之眼新学员可享受一定GPU免费时长！这里的GPU来自于全球各地，通过DBC（区块链技术）分布式网络连接在一起，没有中心化服务器，你的数据都是加密传输的，不会被窃取，非常安全！而且价格便宜，低至1小时不到1块钱！
-
-关注公众号**深度之眼**，后台回复GPU获取GPU使用教程！
 
 ## 课程安排及资料下载
 
