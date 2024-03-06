@@ -1,0 +1,12 @@
+BATCH_SIZE:
+  desc: null
+  sort: 1
+  value: 16
+MAX_EPOCH:
+  desc: null
+  sort: 0
+  value: 25
+learning_rate:
+  desc: null
+  sort: 2
+  value: 0.001
