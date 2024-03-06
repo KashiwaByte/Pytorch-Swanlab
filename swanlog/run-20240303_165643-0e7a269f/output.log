@@ -1,5 +1,0 @@
-SwanLab INFO [2024-03-03 16:56:44,274] Experiment convolution_layers_Mar03_16-56-43 has been registered.
-SwanLab INFO [2024-03-03 16:56:44,276] Run data will be saved locally in c:\Users\94427\kashiwa\Pytorch-Camp\swanlog\run-20240303_165643-0e7a269f
-SwanLab INFO [2024-03-03 16:56:44,276] Experiment_name: convolution_layers_Mar03_16-56-43
-SwanLab INFO [2024-03-03 16:56:44,276] Run `swanlab watch` to view SwanLab Experiment Dashboard
-SwanLab INFO [2024-03-03 16:58:06,189] The current experiment convolution_layers_Mar03_16-56-43 has been completed, SwanLab will close it automatically

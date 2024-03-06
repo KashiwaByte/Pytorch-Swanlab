@@ -1,5 +1,0 @@
-SwanLab INFO [2024-03-03 17:16:52,933] Experiment maxpool_Mar03_17-16-51 has been registered.
-SwanLab INFO [2024-03-03 17:16:52,934] Run data will be saved locally in c:\Users\94427\kashiwa\Pytorch-Camp\swanlog\run-20240303_171651-c386bbc4
-SwanLab INFO [2024-03-03 17:16:52,934] Experiment_name: maxpool_Mar03_17-16-51
-SwanLab INFO [2024-03-03 17:16:52,934] Run `swanlab watch` to view SwanLab Experiment Dashboard
-SwanLab INFO [2024-03-03 17:17:01,039] The current experiment maxpool_Mar03_17-16-51 has been completed, SwanLab will close it automatically
