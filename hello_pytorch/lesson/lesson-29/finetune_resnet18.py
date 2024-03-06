@@ -17,7 +17,7 @@ from matplotlib import pyplot as plt
 import sys
 hello_pytorch_DIR = os.path.abspath(os.path.dirname(__file__)+os.path.sep+".."+os.path.sep+"..")
 sys.path.append(hello_pytorch_DIR)
-
+import swanlab
 from tools.my_dataset import AntsDataset
 from tools.common_tools import set_seed
 import torchvision.models as models
@@ -39,7 +39,7 @@ classes = 2
 start_epoch = -1
 lr_decay_step = 7
 
-
+swanlab.init(experiment_name="resnet-18-finetune",config={"MAX_EPOCH":25,"BATCH_SIZE":16,"learning_rate":0.001})
 # ============================ step 1/5 数据 ============================
 data_dir = os.path.abspath(os.path.join(BASEDIR, "..", "..", "data", "hymenoptera_data"))
 if not os.path.exists(data_dir):
@@ -163,6 +163,7 @@ for epoch in range(start_epoch + 1, MAX_EPOCH):
             loss_mean = loss_mean / log_interval
             print("Training:Epoch[{:0>3}/{:0>3}] Iteration[{:0>3}/{:0>3}] Loss: {:.4f} Acc:{:.2%}".format(
                 epoch, MAX_EPOCH, i+1, len(train_loader), loss_mean, correct / total))
+            swanlab.log({"loss":loss_mean,"Accuracy":correct / total})
             loss_mean = 0.
 
             # if flag_m1:
@@ -195,6 +196,7 @@ for epoch in range(start_epoch + 1, MAX_EPOCH):
             valid_curve.append(loss_val_mean)
             print("Valid:\t Epoch[{:0>3}/{:0>3}] Iteration[{:0>3}/{:0>3}] Loss: {:.4f} Acc:{:.2%}".format(
                 epoch, MAX_EPOCH, j+1, len(valid_loader), loss_val_mean, correct_val / total_val))
+            swanlab.log({"val_loss":loss_val_mean,"val_Accuracy":correct_val / total_val})
 
 train_x = range(len(train_curve))
 train_y = train_curve
@@ -209,7 +211,9 @@ plt.plot(valid_x, valid_y, label='Valid')
 plt.legend(loc='upper right')
 plt.ylabel('loss value')
 plt.xlabel('Iteration')
-plt.show()
+swanlab.log({"result":swanlab.Image(plt)})
+plt.cla()
+
 
 
 
