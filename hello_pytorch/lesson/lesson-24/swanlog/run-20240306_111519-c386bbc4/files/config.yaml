@@ -1,0 +1,16 @@
+disp_interval:
+  desc: null
+  sort: 3
+  value: 200
+lr_init:
+  desc: null
+  sort: 2
+  value: 0.1
+max_iter:
+  desc: null
+  sort: 1
+  value: 2000
+n_hidden:
+  desc: null
+  sort: 0
+  value: 200
