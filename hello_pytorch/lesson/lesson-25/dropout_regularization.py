@@ -9,6 +9,7 @@ import torch
 import torch.nn as nn
 import matplotlib.pyplot as plt
 import sys, os
+import swanlab
 hello_pytorch_DIR = os.path.abspath(os.path.dirname(__file__)+os.path.sep+".."+os.path.sep+"..")
 sys.path.append(hello_pytorch_DIR)
 
@@ -21,7 +22,7 @@ max_iter = 2000
 disp_interval = 400
 lr_init = 0.01
 
-
+swanlab.init(experiment_name="dropout",config={"n_hidden":200,"max_iter":2000,"lr_init":0.1,"disp_interval":200})
 # ============================ step 1/5 数据 ============================
 def gen_data(num_data=10, x_range=(-1, 1)):
 
@@ -113,13 +114,12 @@ for epoch in range(max_iter):
         plt.plot(test_x.data.numpy(), test_pred_prob_05.data.numpy(), 'b--', lw=3, label='d_prob_05')
         plt.text(-0.25, -1.5, 'd_prob_0 loss={:.8f}'.format(loss_normal.item()), fontdict={'size': 15, 'color': 'red'})
         plt.text(-0.25, -2, 'd_prob_05 loss={:.6f}'.format(loss_wdecay.item()), fontdict={'size': 15, 'color': 'red'})
-
+        swanlab.log({"loss":loss_normal.item(),"loss_dropout":loss_wdecay.item()})
         plt.ylim((-2.5, 2.5))
         plt.legend(loc='upper left')
         plt.title("Epoch: {}".format(epoch+1))
-        plt.show()
-        plt.close()
-
+        
+        swanlab.log({'result':swanlab.Image(plt)})
         net_prob_0.train()
         net_prob_05.train()
 
