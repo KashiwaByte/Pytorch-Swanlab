@@ -56,7 +56,7 @@ layer_nums = 100
 batch_size = 16
 
 net = MLP(neural_nums, layer_nums)
-# net.initialize()
+net.initialize()
 
 inputs = torch.randn((batch_size, neural_nums))  # normal: mean=0, std=1
 

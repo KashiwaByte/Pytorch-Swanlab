@@ -24,6 +24,7 @@ sys.path.append(hello_pytorch_DIR)
 from tools.common_tools import set_seed
 from tools.my_dataset import PortraitDataset
 from tools.unet import UNet
+import swanlab
 
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
@@ -54,6 +55,7 @@ if __name__ == "__main__":
     checkpoint_interval = 20
     vis_num = 10
     mask_thres = 0.5
+    swanlab.init(experiment_name="unet_portrait_matting",config={"learning_rate":0.01,"Batch_size":8,"lr_step":150,"mask_thres":0.5})
 
     data_dir = os.path.abspath(os.path.join(BASE_DIR, "..", "..", "data", "PortraitDataset"))
     if not os.path.exists(data_dir):
@@ -111,7 +113,7 @@ if __name__ == "__main__":
             train_curve.append(loss.item())
 
             train_loss_total += loss.item()
-
+            swanlab.log({"running_loss":loss.item(),"loss_mean":train_loss_total/(iter+1)})
             print("Training:Epoch[{:0>3}/{:0>3}] Iteration[{:0>3}/{:0>3}] running_loss: {:.4f}, mean_loss: {:.4f} "
                   "running_dice: {:.4f} lr:{}".format(epoch, max_epoch, iter + 1, len(train_loader), loss.item(),
                                     train_loss_total/(iter+1), train_dice, scheduler.get_lr()))
@@ -149,7 +151,7 @@ if __name__ == "__main__":
                 valid_dice_mean = valid_dice_total/len(valid_loader)
                 valid_curve.append(valid_loss_mean)
                 valid_dice_curve.append(valid_dice_mean)
-
+                swanlab.log({"valid_loss_mean":valid_loss_mean,"dice_mean":valid_dice_mean})
                 print("Valid:\t Epoch[{:0>3}/{:0>3}] mean_loss: {:.4f} dice_mean: {:.4f}".format(
                     epoch, max_epoch, valid_loss_mean, valid_dice_mean))
 
@@ -169,9 +171,10 @@ if __name__ == "__main__":
             plt.subplot(121).imshow(img_hwc)
             mask_pred_gray = mask_pred.squeeze() * 255
             plt.subplot(122).imshow(mask_pred_gray, cmap="gray")
-            plt.show()
-            plt.pause(0.5)
-            plt.close()
+            swanlab.log({"result":swanlab.Image(plt)})
+            # plt.show()
+            # plt.pause(0.5)
+            # plt.close()
 
     # plot curve
     train_x = range(len(train_curve))
@@ -189,7 +192,8 @@ if __name__ == "__main__":
     plt.ylabel('loss value')
     plt.xlabel('Iteration')
     plt.title("Plot in {} epochs".format(max_epoch))
-    plt.show()
+    swanlab.log({"plot_cureve_epochs":swanlab.Image(plt)})
+    # plt.show()
 
     # dice curve
     train_x = range(len(train_dice_curve))
@@ -207,7 +211,8 @@ if __name__ == "__main__":
     plt.ylabel('dice value')
     plt.xlabel('Iteration')
     plt.title("Plot in {} epochs".format(max_epoch))
-    plt.show()
+    swanlab.log({"dice_curve_epochs":swanlab.Image(plt)})
+    # plt.show()
     torch.cuda.empty_cache()
 
 

@@ -20,7 +20,7 @@ sys.path.append(hello_pytorch_DIR)
 from tools.my_dataset import RMBDataset
 from tools.common_tools import set_seed
 from model.lenet import LeNet
-
+import swanlab 
 
 set_seed(1)  # 设置随机种子
 
@@ -31,29 +31,39 @@ flag = 0
 if flag:
 
     writer = SummaryWriter(comment='test_your_comment', filename_suffix="_test_your_filename_suffix")
-
+    swanlab.init(experiment_name='image')
     # img 1     random
     fake_img = torch.randn(3, 512, 512)
     writer.add_image("fake_img", fake_img, 1)
+    numpy_img = fake_img.numpy()
+    swanlab.log({"img1":swanlab.Image(numpy_img)})
     time.sleep(1)
 
     # img 2     ones
     fake_img = torch.ones(3, 512, 512)
+    numpy_img = fake_img.numpy()
     time.sleep(1)
     writer.add_image("fake_img", fake_img, 2)
+    swanlab.log({"img2":swanlab.Image(numpy_img)})
 
     # img 3     1.1
-    fake_img = torch.ones(3, 512, 512) * 1.1
+    fake_img = torch.ones(3, 512, 512) 
+    numpy_img = fake_img.numpy()
     time.sleep(1)
     writer.add_image("fake_img", fake_img, 3)
-
+    swanlab.log({"img3":swanlab.Image(numpy_img)})
+    
     # img 4     HW
     fake_img = torch.rand(512, 512)
+    numpy_img = fake_img.numpy()
     writer.add_image("fake_img", fake_img, 4, dataformats="HW")
-
+    swanlab.log({"img4":swanlab.Image(numpy_img)})
+    
     # img 5     HWC
     fake_img = torch.rand(512, 512, 3)
+    numpy_img = fake_img.numpy()
     writer.add_image("fake_img", fake_img, 5, dataformats="HWC")
+    swanlab.log({"img5":swanlab.Image(numpy_img)})
 
     writer.close()
 
@@ -63,7 +73,7 @@ flag = 0
 # flag = 1
 if flag:
     writer = SummaryWriter(comment='test_your_comment', filename_suffix="_test_your_filename_suffix")
-
+    swanlab.init(experiment_name='image')
     split_dir = os.path.join("..", "..", "data", "rmb_split")
     train_dir = os.path.join(split_dir, "train")
     # train_dir = "path to your training data"
@@ -74,6 +84,9 @@ if flag:
     data_batch, label_batch = next(iter(train_loader))
 
     img_grid = vutils.make_grid(data_batch, nrow=4, normalize=True, scale_each=True)
+    print(img_grid.numpy())
+   # swanlab.log({"imgGrid":swanlab.Image(img_grid.numpy())})
+
     # img_grid = vutils.make_grid(data_batch, nrow=4, normalize=False, scale_each=False)
     writer.add_image("input img", img_grid, 0)
 

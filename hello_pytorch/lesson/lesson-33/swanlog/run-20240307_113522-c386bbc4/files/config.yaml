@@ -1,0 +1,16 @@
+Batch_size:
+  desc: null
+  sort: 1
+  value: 8
+learning_rate:
+  desc: null
+  sort: 0
+  value: 0.01
+lr_step:
+  desc: null
+  sort: 2
+  value: 150
+mask_thres:
+  desc: null
+  sort: 3
+  value: 0.5

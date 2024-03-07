@@ -53,8 +53,8 @@ if flag:
 
 
 # ------------------------------ 2 Multi Step LR ------------------------------
-flag = 0
-# flag = 1
+# flag = 0
+flag = 1
 if flag:
 
     milestones = [50, 125, 160]
@@ -176,8 +176,8 @@ if flag:
 
 
 # ------------------------------ 6 lambda ------------------------------
-# flag = 0
-flag = 1
+flag = 0
+# flag = 1
 if flag:
 
     lr_init = 0.1

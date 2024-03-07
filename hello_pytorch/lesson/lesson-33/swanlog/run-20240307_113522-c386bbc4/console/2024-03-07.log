@@ -1,0 +1,17 @@
+1 [SwanLab-INFO]:        Experiment unet_portrait_matting_Mar07_11-35-22 has been registered.
+2 [SwanLab-INFO]:        Run data will be saved locally in D:\Pytorch-Swanlab\hello_pytorch\lesson\lesson-33\swanlog\run-20240307_113522-c386bbc4
+3 [SwanLab-INFO]:        Experiment_name: unet_portrait_matting_Mar07_11-35-22
+4 [SwanLab-INFO]:        Run `swanlab watch` to view SwanLab Experiment Dashboard
+5 Training:Epoch[000/001] Iteration[001/012] running_loss: 0.2345, mean_loss: 0.2345 running_dice: 0.5629 lr:[0.01]
+6 Training:Epoch[000/001] Iteration[002/012] running_loss: 0.2400, mean_loss: 0.2372 running_dice: 0.5662 lr:[0.01]
+7 Training:Epoch[000/001] Iteration[003/012] running_loss: 0.2271, mean_loss: 0.2338 running_dice: 0.6443 lr:[0.01]
+8 Training:Epoch[000/001] Iteration[004/012] running_loss: 0.2264, mean_loss: 0.2320 running_dice: 0.6620 lr:[0.01]
+9 Training:Epoch[000/001] Iteration[005/012] running_loss: 0.2037, mean_loss: 0.2263 running_dice: 0.7656 lr:[0.01]
+10 Training:Epoch[000/001] Iteration[006/012] running_loss: 0.2149, mean_loss: 0.2244 running_dice: 0.7022 lr:[0.01]
+11 Training:Epoch[000/001] Iteration[007/012] running_loss: 0.1870, mean_loss: 0.2191 running_dice: 0.7716 lr:[0.01]
+12 Training:Epoch[000/001] Iteration[008/012] running_loss: 0.1938, mean_loss: 0.2159 running_dice: 0.7172 lr:[0.01]
+13 Training:Epoch[000/001] Iteration[009/012] running_loss: 0.1799, mean_loss: 0.2119 running_dice: 0.7980 lr:[0.01]
+14 Training:Epoch[000/001] Iteration[010/012] running_loss: 0.1753, mean_loss: 0.2082 running_dice: 0.7908 lr:[0.01]
+15 Training:Epoch[000/001] Iteration[011/012] running_loss: 0.1851, mean_loss: 0.2061 running_dice: 0.7477 lr:[0.01]
+16 Training:Epoch[000/001] Iteration[012/012] running_loss: 0.1872, mean_loss: 0.2046 running_dice: 0.7361 lr:[0.01]
+17 [SwanLab-INFO]:        The current experiment unet_portrait_matting_Mar07_11-35-22 has been completed, SwanLab will close it automatically

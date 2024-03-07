@@ -30,10 +30,10 @@ if flag:
     feature_maps_bs = torch.stack([feature_maps for i in range(batch_size)], dim=0)  # 4D
 
     # feature_maps_bs shape is [8, 6, 3, 4],  B * C * H * W
-    # ln = nn.LayerNorm(feature_maps_bs.size()[1:], elementwise_affine=True)
+    ln = nn.LayerNorm(feature_maps_bs.size()[1:], elementwise_affine=True)
     # ln = nn.LayerNorm(feature_maps_bs.size()[1:], elementwise_affine=False)
     # ln = nn.LayerNorm([6, 3, 4])
-    ln = nn.LayerNorm([6, 3])
+    # ln = nn.LayerNorm([6, 3])
 
     output = ln(feature_maps_bs)
 
@@ -79,7 +79,7 @@ if flag:
 
     batch_size = 2
     num_features = 4
-    num_groups = 4   # 3 Expected number of channels in input to be divisible by num_groups
+    num_groups = 2   # 3 Expected number of channels in input to be divisible by num_groups
 
     features_shape = (2, 2)
 
