@@ -1,0 +1,6 @@
+SwanLab INFO [2024-03-07 10:48:08,356] Experiment resnet_inference_cpu_Mar07_10-48-06 has been registered.
+SwanLab INFO [2024-03-07 10:48:08,357] Run data will be saved locally in D:\Pytorch-Swanlab\hello_pytorch\lesson\lesson-32\swanlog\run-20240307_104806-fc3fe4fc
+SwanLab INFO [2024-03-07 10:48:08,357] Experiment_name: resnet_inference_cpu_Mar07_10-48-06
+SwanLab INFO [2024-03-07 10:48:08,357] Run `swanlab watch` to view SwanLab Experiment Dashboard
+SwanLab WARNING [2024-03-07 10:48:15,362] In the multi-experiment chart, the current type of tag is not as expected and has been ignored
+SwanLab INFO [2024-03-07 10:48:16,070] The current experiment resnet_inference_cpu_Mar07_10-48-06 has been completed, SwanLab will close it automatically

@@ -15,8 +15,9 @@ from PIL import Image
 from matplotlib import pyplot as plt
 import torchvision.models as models
 BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-device = torch.device("cpu")
+device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+import swanlab
+# device = torch.device("cpu")
 
 # config
 vis = True
@@ -25,7 +26,7 @@ vis_row = 4
 
 norm_mean = [0.485, 0.456, 0.406]
 norm_std = [0.229, 0.224, 0.225]
-
+swanlab.init(experiment_name="resnet_inference")
 inference_transform = transforms.Compose([
     transforms.Resize(256),
     transforms.CenterCrop(224),
@@ -138,17 +139,18 @@ if __name__ == "__main__":
                     for i in range(len(img_list)):
                         plt.subplot(vis_row, vis_row, i+1).imshow(img_list[i])
                         plt.title("predict:{}".format(img_pred[i]))
-                    plt.show()
-                    plt.close()
+                    swanlab.log({"result":swanlab.Image(plt,caption="inference_result")})
                     img_list, img_pred = list(), list()
 
             time_s = time_toc-time_tic
+            swanlab.log({"time":swanlab.Text(f'{time_s}s',caption="time")})
             time_total += time_s
-
             print('{:d}/{:d}: {} {:.3f}s '.format(idx + 1, num_img, img_name, time_s))
 
     print("\ndevice:{} total time:{:.1f}s mean:{:.3f}s".
           format(device, time_total, time_total/num_img))
+    swanlab.log({"time_total":swanlab.Text(f'{time_total}s',caption="time_total")})
+    swanlab.log({"time_mean":swanlab.Text(f'{time_total/num_img}s',caption="time_mean")})
     if torch.cuda.is_available():
         print("GPU name:{}".format(torch.cuda.get_device_name()))
 
