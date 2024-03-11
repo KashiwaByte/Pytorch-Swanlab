@@ -1,14 +1,14 @@
 以下是基于[Pytorch框架班](https://wx32e0ad0076a9091c.h5.xiaoe-tech.com/v1/course/video/v_5e9e5f6ddcef2_TCLvUDOF?type=2&pro_id=p_5df0ad9a09d37_qYqVmt85) 课程的Swanlab实践指南。
 
 ## Swanlab实践
-lesson-08:[transforms_methods](hello_pytorch\lesson\lesson-08\transforms_methods_1.py) 介绍了Swanlab对预处理图像的记录  
-lesson-17:[create_optimizer](hello_pytorch\lesson\lesson-17\create_optimizer.py) 介绍了Swanlab对基础二分类模型的全流程记录   
-lesson-23:[hook_for_grad_cam](hello_pytorch\lesson\lesson-23\hook_for_grad_cam.py) 介绍了Swanlab对hook函数处理获得图像的记录  
-lesson-24:[L2_regularization](hello_pytorch\lesson\lesson-24\L2_regularization.py) 介绍了Swanlab对L2正则化处理模型训练的记录，包含了与Tensorboard的对比  
-lesson-25:[dropout_regularization](hello_pytorch\lesson\lesson-25\dropout_regularization.py) 介绍了Swanlab对dropout正则化处理模型训练的记录，包含了与Tensorboard的对比  
-lesson-29:[finetune_resnet18](hello_pytorch\lesson\lesson-29\finetune_resnet18.py) 介绍了Swanlab的多实验对比，包括不添加finetune，只添加finetune，添加finetune并冻结卷积层，添加finetune并调小卷积层学习度等四类情况    
-lesson-32:[resnet_inference](hello_pytorch\lesson\lesson-32\resnet_inference.py) 介绍了Swanlab对模型推理的记录，包含推理时间和推理效果  
-lesson-33:[unet_portrait_matting](hello_pytorch\lesson\lesson-33\2_unet_portrait_matting.py) 介绍了Swanlab对图像分割模型U-net的加载与训练，包含提取效果图和原图的对比记录
+lesson-08:[transforms_methods](hello_pytorch/lesson/lesson-08/transforms_methods_1.py) 介绍了Swanlab对预处理图像的记录  
+lesson-17:[create_optimizer](hello_pytorch/lesson/lesson-17/create_optimizer.py) 介绍了Swanlab对基础二分类模型的全流程记录   
+lesson-23:[hook_for_grad_cam](hello_pytorch/lesson/lesson-23/hook_for_grad_cam.py) 介绍了Swanlab对hook函数处理获得图像的记录  
+lesson-24:[L2_regularization](hello_pytorch/lesson/lesson-24/L2_regularization.py) 介绍了Swanlab对L2正则化处理模型训练的记录，包含了与Tensorboard的对比  
+lesson-25:[dropout_regularization](hello_pytorch/lesson/lesson-25/dropout_regularization.py) 介绍了Swanlab对dropout正则化处理模型训练的记录，包含了与Tensorboard的对比  
+lesson-29:[finetune_resnet18](hello_pytorch/lesson/lesson-29/finetune_resnet18.py) 介绍了Swanlab的多实验对比，包括不添加finetune，只添加finetune，添加finetune并冻结卷积层，添加finetune并调小卷积层学习度等四类情况    
+lesson-32:[resnet_inference](hello_pytorch/lesson/lesson-32/resnet_inference.py) 介绍了Swanlab对模型推理的记录，包含推理时间和推理效果  
+lesson-33:[unet_portrait_matting](hello_pytorch/lesson/lesson-33/2_unet_portrait_matting.py) 介绍了Swanlab对图像分割模型U-net的加载与训练，包含提取效果图和原图的对比记录
 
 
 
