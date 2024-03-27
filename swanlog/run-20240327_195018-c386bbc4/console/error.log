@@ -1,0 +1,40 @@
+2024-03-27 19:50:20.137523
+<class 'urllib.error.URLError'>
+URLError(SSLEOFError(8, '[SSL: UNEXPECTED_EOF_WHILE_READING] EOF occurred in violation of protocol (_ssl.c:1007)'))
+  File "D:\Pytorch-Swanlab\test1.py", line 60, in <module>
+    train_data = CIFAR10(train=True,transform=train_transform,download=True,root='./data')
+
+  File "C:\Users\47131\.conda\envs\swanlab\lib\site-packages\torchvision\datasets\cifar.py", line 65, in __init__
+    self.download()
+
+  File "C:\Users\47131\.conda\envs\swanlab\lib\site-packages\torchvision\datasets\cifar.py", line 139, in download
+    download_and_extract_archive(self.url, self.root, filename=self.filename, md5=self.tgz_md5)
+
+  File "C:\Users\47131\.conda\envs\swanlab\lib\site-packages\torchvision\datasets\utils.py", line 434, in download_and_extract_archive
+    download_url(url, download_root, filename, md5)
+
+  File "C:\Users\47131\.conda\envs\swanlab\lib\site-packages\torchvision\datasets\utils.py", line 134, in download_url
+    url = _get_redirect_url(url, max_hops=max_redirect_hops)
+
+  File "C:\Users\47131\.conda\envs\swanlab\lib\site-packages\torchvision\datasets\utils.py", line 82, in _get_redirect_url
+    with urllib.request.urlopen(urllib.request.Request(url, headers=headers)) as response:
+
+  File "C:\Users\47131\.conda\envs\swanlab\lib\urllib\request.py", line 216, in urlopen
+    return opener.open(url, data, timeout)
+
+  File "C:\Users\47131\.conda\envs\swanlab\lib\urllib\request.py", line 519, in open
+    response = self._open(req, data)
+
+  File "C:\Users\47131\.conda\envs\swanlab\lib\urllib\request.py", line 536, in _open
+    result = self._call_chain(self.handle_open, protocol, protocol +
+
+  File "C:\Users\47131\.conda\envs\swanlab\lib\urllib\request.py", line 496, in _call_chain
+    result = func(*args)
+
+  File "C:\Users\47131\.conda\envs\swanlab\lib\urllib\request.py", line 1391, in https_open
+    return self.do_open(http.client.HTTPSConnection, req,
+
+  File "C:\Users\47131\.conda\envs\swanlab\lib\urllib\request.py", line 1351, in do_open
+    raise URLError(err)
+
+

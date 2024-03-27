@@ -1,0 +1,5 @@
+SwanLab INFO [2024-03-27 19:54:57,335] Experiment CIFAR10_Mar27_19-54-55 has been registered.
+SwanLab INFO [2024-03-27 19:54:57,339] Run data will be saved locally in D:\Pytorch-Swanlab\swanlog\run-20240327_195455-c386bbc4
+SwanLab INFO [2024-03-27 19:54:57,339] Experiment_name: CIFAR10_Mar27_19-54-55
+SwanLab INFO [2024-03-27 19:54:57,341] Run `swanlab watch` to view SwanLab Experiment Dashboard
+SwanLab ERROR [2024-03-27 19:54:57,640] Error happended while training, SwanLab will throw it

@@ -1,0 +1,20 @@
+Batch_Size:
+  desc: null
+  sort: 1
+  value: 4
+Epoch:
+  desc: null
+  sort: 0
+  value: 10
+Learning_Rate:
+  desc: null
+  sort: 2
+  value: 0.01
+log_iterval:
+  desc: null
+  sort: 3
+  value: 10
+val_interval:
+  desc: null
+  sort: 4
+  value: 1
