@@ -57,8 +57,8 @@ valid_transform = transforms.Compose([
 ])
 
 # 构建MyDataset实例
-train_data = CIFAR10(train=True,transform=train_transform,download=True,root='./data')
-valid_data = CIFAR10(train=False,download=True,transform=valid_transform,root='./data')
+train_data = CIFAR10(train=True,transform=train_transform,download=True,root='dataset')
+valid_data = CIFAR10(train=False,download=True,transform=valid_transform,root='dataset')
 
 # 构建DataLoder
 train_loader = DataLoader(dataset=train_data, batch_size=BATCH_SIZE, shuffle=True)
@@ -68,13 +68,13 @@ valid_loader = DataLoader(dataset=valid_data, batch_size=BATCH_SIZE)
 
 class MyNet(nn.Module):
 
-    def __init__(self,classes) -> None:
+    def __init__(self, *args, **kwargs) -> None:
+        super().__init__(*args, **kwargs)
         self.conv1 = nn.Conv2d(3, 6, 5)
         self.conv2 = nn.Conv2d(6, 16, 5)
-        self.fc1 = nn.Linear(in_features=800, out_features=120)
+        self.fc1 = nn.Linear(in_features=400, out_features=120)
         self.fc2 = nn.Linear(in_features=120, out_features=84)
-        self.fc3 = nn.Linear(in_features=84, out_features=classes)
-        pass
+        self.fc3 = nn.Linear(in_features=84, out_features=10)
         
       
 
@@ -83,7 +83,7 @@ class MyNet(nn.Module):
         out = F.max_pool2d(out, 2)
         out = F.relu(self.conv2(out))
         out = F.max_pool2d(out, 2)
-        out = out.view(out.size(0), -1)
+        out = out.view(4, -1)
         out = F.relu(self.fc1(out))
         out = F.relu(self.fc2(out))
         out = self.fc3(out)
@@ -105,7 +105,7 @@ class MyNet(nn.Module):
                 m.bias.data.zero_()
 
 
-net = MyNet(classes=10)
+net = MyNet()
 net.initialize_weights()
 
 # ============================ step 3/5 损失函数 ============================
@@ -152,8 +152,9 @@ for epoch in range(MAX_EPOCH):
             loss_mean = loss_mean / log_interval
             print("Training:Epoch[{:0>3}/{:0>3}] Iteration[{:0>3}/{:0>3}] Loss: {:.4f} Acc:{:.2%}".format(
                 epoch, MAX_EPOCH, i+1, len(train_loader), loss_mean, correct / total))
+        if i%50 ==0: 
             swanlab.log({'Loss':loss_mean,'Accuracy':correct/total})
-            loss_mean = 0.
+        loss_mean = 0.
 
     scheduler.step()  # 更新学习率
 
@@ -179,7 +180,11 @@ for epoch in range(MAX_EPOCH):
             valid_curve.append(loss_val)
             print("Valid:\t Epoch[{:0>3}/{:0>3}] Iteration[{:0>3}/{:0>3}] Loss: {:.4f} Acc:{:.2%}".format(
                 epoch, MAX_EPOCH, j+1, len(valid_loader), loss_val, correct_val / total_val))
-            swanlab.log({"Loss_Val":loss_val,'Accuracy_Val':correct_val/total_val})
+            if i%50 ==0: 
+                swanlab.log({"Loss_Val":loss_val,'Accuracy_Val':correct_val/total_val})
+                
+model_path ='cifar_net.pth'
+torch.save(net.state_dict(),model_path)
 
 
 train_x = range(len(train_curve))
@@ -198,29 +203,6 @@ plt.xlabel('Iteration')
 swanlab.log({"Result":swanlab.Image(plt)})
 plt.show()
 
-# # ============================ inference ============================
-
-# BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-# test_dir = os.path.join(BASE_DIR, "test_data")
-
-# test_data = RMBDataset(data_dir=test_dir, transform=valid_transform)
-# valid_loader = DataLoader(dataset=test_data, batch_size=1)
-
-# for i, data in enumerate(valid_loader):
-#     # forward
-#     inputs, labels = data
-#     outputs = net(inputs)
-#     _, predicted = torch.max(outputs.data, 1)
-
-#     rmb = 1 if predicted.numpy()[0] == 0 else 100
-
-#     img_tensor = inputs[0, ...]  # C H W
-#     img = transform_invert(img_tensor, valid_transform)
-#     plt.imshow(img)
-#     plt.title("LeNet got {} Yuan".format(rmb))
-#     plt.show()
-#     plt.pause(0.5)
-#     plt.close()
 
 
 
